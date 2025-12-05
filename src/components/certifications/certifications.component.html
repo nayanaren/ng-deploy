@@ -1,0 +1,11 @@
+<section id="certifications" class="section--page">
+  <h2>Certifications</h2>
+  @for(cert of certs; track cert) {
+    <div class="card--project">
+      <span class="with-icon">
+        <img class="icon" aria-hidden="true" src="./assets/images/idCard.svg" alt=""> 
+        {{ cert }}
+      </span>
+    </div>
+  }
+</section>

@@ -1,0 +1,95 @@
+#wrapper--hero {
+        display: flex;
+        align-items: center;
+        gap: 4em;
+    }
+
+    @media(max-width:600px){
+    }
+
+
+
+    #profile-pic {
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        outline: solid 5px #FADCD2;
+        transition: outline 0.6s linear;
+        margin: 0.5em;
+    }
+
+    #profile-pic:hover {
+        outline: solid 8px #F5C1CB;
+    }
+    #bio, a {
+        font-weight: 300;
+    }
+
+    #user-name {
+        font-size: 3em;
+        line-height: 1em;
+    }
+
+    #email {
+        color: var(--mainTextColor);
+    }
+    #socials--list {
+        display: flex;
+        justify-content: flex-start;
+        column-gap: 1em;
+        flex-wrap: wrap;
+        padding-top: 10px;
+    }
+
+    #socials--list a{
+        font-size: 0.9em;
+        color: var(--secondaryTextColor);
+        transition: 0.3s;
+    }
+
+    #socials--list a:hover {
+        color: var(--mainLinkColor);
+    }
+
+    #email a{
+        font-size: 0.9em;
+        color: var(--secondaryTextColor);
+        transition: 0.3s;
+    }
+
+    #email a:hover, #email a:focus {
+        color: var(--mainLinkColor);
+    }
+
+    #email a:focus {
+        outline: 2px solid var(--mainLinkColor);
+        outline-offset: 2px;
+    }
+
+    .icon {
+        height: 40px;
+        width: 40px;
+    }
+
+     #socials--list a {
+        border: 1px solid var(--mainBorderColor);
+        padding: 0.5em 1em;
+        border-radius: 5px;
+    }
+
+    #socials--list a:hover, #socials--list a:focus,
+    .switchThemeText:hover, .switchThemeText:focus {
+        outline: 2px solid var(--mainBorderHighlightColor);
+        outline-offset: 2px;
+    }
+
+    a {
+        text-decoration: none;
+        color: var(--mainLinkColor);
+    }
+
+    .with-icon {
+        display: flex;
+        align-items: center;
+    }

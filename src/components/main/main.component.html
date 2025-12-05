@@ -1,0 +1,80 @@
+<input type="checkbox" id="themeSwitch" name="theme-switch" class="theme-switch__input" aria-label="Toggle dark/light theme" />
+<div class="page">
+  <div id="container--main">
+    <!-- Skip to main content link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <label for="themeSwitch" class="theme-switch__label">
+      <span class="switchThemeText" tabindex="0" role="button">Switch theme</span>
+    </label>
+
+    <main id="main-content">
+      <!-- Hero Section -->
+       <app-profile></app-profile>
+
+      <!-- Tab Navigation -->
+      <div class="tab-container">
+        <div class="tab-nav" role="tablist" aria-label="Portfolio sections">
+          <button
+            class="tab-button"
+            role="tab"
+            [attr.aria-selected]="isActiveTab('skills')"
+            [attr.aria-controls]="'skills-panel'"
+            [attr.tabindex]="isActiveTab('skills') ? 0 : -1"
+            [class.active]="isActiveTab('skills')"
+            (click)="setActiveTab('skills')"
+            (keydown)="onTabKeydown($event, 'skills')">
+            Skills
+          </button>
+          <button
+            class="tab-button"
+            role="tab"
+            [attr.aria-selected]="isActiveTab('experience')"
+            [attr.aria-controls]="'experience-panel'"
+            [attr.tabindex]="isActiveTab('experience') ? 0 : -1"
+            [class.active]="isActiveTab('experience')"
+            (click)="setActiveTab('experience')"
+            (keydown)="onTabKeydown($event, 'experience')">
+            Experience
+          </button>
+          <button
+            class="tab-button"
+            role="tab"
+            [attr.aria-selected]="isActiveTab('certifications')"
+            [attr.aria-controls]="'certifications-panel'"
+            [attr.tabindex]="isActiveTab('certifications') ? 0 : -1"
+            [class.active]="isActiveTab('certifications')"
+            (click)="setActiveTab('certifications')"
+            (keydown)="onTabKeydown($event, 'certifications')">
+            Certifications
+          </button>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="tab-content">
+          @switch (activeTab) {
+            <!-- Skills Tab -->
+            @case ('skills') {
+              <div class="tab-panel" role="tabpanel" id="skills-panel" [attr.aria-labelledby]="'skills-tab'">
+                <app-skills></app-skills>
+              </div>
+            }
+            <!-- Experience Tab -->
+            @case('experience') {
+              <div class="tab-panel" role="tabpanel" id="experience-panel" [attr.aria-labelledby]="'experience-tab'">
+                <app-work-experience></app-work-experience>
+              </div>
+            }
+
+            <!-- Certifications Tab -->
+            @case('certifications') {
+              <div class="tab-panel" role="tabpanel" id="certifications-panel" [attr.aria-labelledby]="'certifications-tab'">
+                <app-certifications></app-certifications>
+              </div>
+            }
+          }
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

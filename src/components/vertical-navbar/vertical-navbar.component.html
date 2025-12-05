@@ -1,0 +1,20 @@
+<nav #navbar class="vertical-navbar">
+  <ul class="nav-list">
+    @for (item of navItems; track item) {
+      <li
+        class="nav-item"
+        [class.active]="activeSection === item.id"
+        >
+        <a
+          href="javascript:void(0)"
+          class="nav-link"
+          (click)="scrollToSection(item.href, item.id)"
+          [attr.aria-current]="activeSection === item.id ? 'page' : null"
+          >
+          <span class="nav-indicator"></span>
+          <span class="nav-text">{{ item.label }}</span>
+        </a>
+      </li>
+    }
+  </ul>
+</nav>

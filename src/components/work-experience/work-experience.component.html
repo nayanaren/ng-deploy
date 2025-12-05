@@ -1,0 +1,21 @@
+
+                <section id="work-history-wrapper" class="section--page">
+                  <h2>Work History</h2>
+                  <div class="line-break" aria-hidden="true"></div>
+
+                    @for (exp of workExpData; track exp.title) {
+                        <article class="card--work-history">
+                            <h3 class="with-icon">
+                                <img class="icon" src="./assets/images/briefcase.svg" alt="" aria-hidden="true">
+                                {{ exp.title }} | {{ exp.company }}
+                            </h3>
+                            <p><span>{{ exp.start }} - {{ exp.end}}</span></p>
+                            <ul>
+                                @for (duty of exp.duties;track duty) {
+                                    <li>{{ duty }}</li>
+                                }
+                            </ul>
+                        </article>
+                        <div class="line-break" aria-hidden="true"></div>
+                    }
+                </section>

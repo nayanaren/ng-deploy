@@ -1,0 +1,143 @@
+.vertical-navbar {
+  position: fixed;
+  top: 50%;
+  left: 50px;
+  transform: translateY(-50%);
+  z-index: 1000;
+  
+  @media (max-width: 1024px) {
+    left: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    display: none; // Hide on mobile devices
+  }
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--secondaryTextColor);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  padding: 8px 0;
+  
+  &:hover {
+    color: var(--mainLinkColor);
+    
+    .nav-indicator {
+      width: 60px;
+      background-color: var(--mainLinkColor);
+    }
+    
+    .nav-text {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  &:focus {
+    outline: 2px solid var(--mainBorderHighlightColor);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+.nav-indicator {
+  width: 30px;
+  height: 2px;
+  background-color: var(--mainBorderColor);
+  margin-right: 15px;
+  transition: all 0.3s ease;
+  border-radius: 1px;
+}
+
+.nav-text {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+// Active state
+.nav-item.active {
+  .nav-link {
+    color: var(--mainLinkColor);
+  }
+  
+  .nav-indicator {
+    width: 60px;
+    background-color: var(--mainLinkColor);
+  }
+  
+  .nav-text {
+    opacity: 1;
+    transform: translateX(0);
+    color: var(--mainLinkColor);
+  }
+}
+
+// Hover effect for the entire navbar
+.vertical-navbar:hover {
+  .nav-text {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .nav-indicator {
+    width: 60px;
+  }
+}
+
+// Animation for smooth transitions
+.nav-item {
+  &:nth-child(1) .nav-text { transition-delay: 0ms; }
+  &:nth-child(2) .nav-text { transition-delay: 50ms; }
+  &:nth-child(3) .nav-text { transition-delay: 100ms; }
+  &:nth-child(4) .nav-text { transition-delay: 150ms; }
+  &:nth-child(5) .nav-text { transition-delay: 200ms; }
+}
+
+// Dark theme adjustments
+.theme-switch__input:checked ~ .page {
+  .nav-link:hover {
+    color: var(--mainLinkColor-dark);
+    
+    .nav-indicator {
+      background-color: var(--mainLinkColor-dark);
+    }
+  }
+  
+  .nav-item.active {
+    .nav-link {
+      color: var(--mainLinkColor-dark);
+    }
+    
+    .nav-indicator {
+      background-color: var(--mainLinkColor-dark);
+    }
+    
+    .nav-text {
+      color: var(--mainLinkColor-dark);
+    }
+  }
+}
